@@ -40,9 +40,32 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 */
 
 
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+
+function kopyala(args){
+
+  const copy =[];
+  
+  for (let i = 0; i < args.length; i++) {
+    copy[i] = args[i];
+  }
+
+  return copy;
+
 }
+kopyala(orijinalTatlar) //function call
+
+/*const copy =[];
+
+function kopyala(args, args2){
+  
+  for (let i = 0; i < args.length; i++) {
+    args2[i] = args[i];
+  }
+
+  return args2;
+
+}*/
+
 
 
 /* Görev 2:
@@ -56,9 +79,16 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
+function dizi25Cesitmi(args){
+  if(args.length === 25){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
+
+dizi25Cesitmi(orijinalTatlar) //function call
 
 
 /* Görev 3:
@@ -74,10 +104,12 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
+function cesitEkle(dizi,tat){
+  dizi.unshift(tat);
+  return dizi;
 }
 
+cesitEkle(orijinalTatlar, "Kakule")
 
 /* Cörev 4:
 
@@ -92,10 +124,14 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(dizi){
+  dizi.pop();
+  return dizi;
 }
 
+sonCesitiKaldir(orijinalTatlar)
+
+console.log(orijinalTatlar)
 
 /* Görev 5:
 Dizideki belirli bir indeksteki çeşniyi döndüren bir işlev yazın.
@@ -108,10 +144,11 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
+function indekstekiCesitiGetir(dizi,index){
+  return dizi[index];
 }
 
+indekstekiCesitiGetir(orijinalTatlar, 2)
 
 /* Görev 6:
 
@@ -128,10 +165,15 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreCesitCikar(dizi,tat){
+  let index = dizi.indexOf(tat);
+  dizi.splice(index, 1);
+  return dizi
 }
 
+ismeGoreCesitCikar(orijinalTatlar, "Tarçın")
+
+console.log(orijinalTatlar)
 
 /* Görev 7:
 
@@ -154,9 +196,22 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
 */
 
 
-function ismeGoreFiltrele(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreFiltrele(dizi,tat){
+  const dizi2 =[];
+
+  for(let i=0;i<dizi.length;i++){
+    if(dizi[i].includes(tat)===true){
+      dizi2.push(dizi[i]);
+    }
+  }
+
+  return dizi2;
+
+  //console.log(dizi2)
+
 }
+
+ismeGoreFiltrele(orijinalTatlar, "Çikolata")
 
 
 
